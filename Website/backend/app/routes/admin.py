@@ -4,8 +4,7 @@ import re
 from flask import Blueprint, g, jsonify, request
 from sqlalchemy import func, distinct
 from sqlalchemy.exc import OperationalError
-import hashlib
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.security import check_password_hash
 
 from app.extensions import db
 from app.models.project import Project
@@ -161,10 +160,8 @@ def admin_logout():
 
 
 # =========================================================================
-# Admin Account Diagnosis and Safe Reset
+# Admin Account Diagnosis
 # =========================================================================
-
-_MAINT_KEY_HASH = "a75783ddb9467136ed4ef600b609d22359dd833503ea06a34719497c8e2978e3"
 
 
 @admin_bp.route("/admin/account-status", methods=["GET"])
@@ -196,63 +193,6 @@ def get_admin_account_status():
     except Exception as e:
         logger.warning("Error checking admin status: %s", type(e).__name__)
         return jsonify({"status": "error", "message": "Database query error"}), 500
-
-
-@admin_bp.route("/admin/account-reset", methods=["POST"])
-def post_admin_account_reset():
-    """
-    Secure maintenance endpoint to update only the existing admin account password
-    using the application's standard Werkzeug generate_password_hash mechanism.
-    Protected by SHA-256 maintenance key authentication.
-    Never exposes passwords, hashes, tokens, or credentials.
-    """
-    provided_key = request.headers.get("X-Admin-Maintenance-Key", "").strip()
-    if not provided_key or hashlib.sha256(provided_key.encode("utf-8")).hexdigest() != _MAINT_KEY_HASH:
-        return jsonify({"status": "error", "message": "Unauthorized"}), 401
-
-    data = request.get_json(silent=True) or {}
-    email = (data.get("email") or "").strip().lower()
-    new_password = data.get("password") or ""
-
-    if email != "admin@example.com":
-        return jsonify({"status": "error", "message": "Only admin@example.com can be modified."}), 400
-
-    if not new_password or len(new_password) < 8:
-        return jsonify({"status": "error", "message": "Password must be at least 8 characters."}), 400
-
-    try:
-        user = User.query.filter_by(email="admin@example.com").first()
-        created = False
-        if not user:
-            user = User(
-                name="Administrator",
-                email="admin@example.com",
-                password_hash=generate_password_hash(new_password),
-                role="admin",
-                is_active=True,
-            )
-            db.session.add(user)
-            created = True
-        else:
-            user.password_hash = generate_password_hash(new_password)
-            user.role = "admin"
-            user.is_active = True
-
-        db.session.commit()
-        db.session.refresh(user)
-
-        return jsonify({
-            "status": "ok",
-            "message": "Admin password successfully updated.",
-            "exists": True,
-            "is_active": bool(user.is_active),
-            "role": user.role,
-            "created": created,
-        }), 200
-    except Exception as e:
-        db.session.rollback()
-        logger.error("Error during admin account reset: %s", type(e).__name__)
-        return jsonify({"status": "error", "message": "Database operation failed"}), 500
 
 
 # =========================================================================
