@@ -1,0 +1,225 @@
+/**
+ * DigitalProductsPage Styles
+ * Step 32: Build the Digital Products Feature
+ */
+
+.digital-products-page {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+  background-color: var(--bg-canvas);
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Page Hero
+   ========================================================================== */
+.products-hero {
+  max-width: 48rem;
+  margin-bottom: var(--space-16);
+}
+
+.products-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.products-hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+.products-hero__title {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.products-hero__subheading {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4) 0;
+  max-width: 44rem;
+}
+
+.products-hero__supporting {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Page Sections
+   ========================================================================== */
+.products-page-section {
+  margin-bottom: var(--space-16);
+}
+
+/* ==========================================================================
+   Section 4: Engineering Standards Card
+   ========================================================================== */
+.products-principles-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-8);
+  box-shadow: var(--shadow-sm);
+  max-width: 48rem;
+}
+
+.products-principles-card__label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.products-principles-card__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.products-principles-card__text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 5: Bottom CTA Card
+   ========================================================================== */
+.products-cta-section {
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-8);
+}
+
+.products-cta-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10) var(--space-8);
+  box-shadow: var(--shadow-sm);
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-cta__heading {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.products-cta__text {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 34rem;
+  margin: 0 0 var(--space-6) 0;
+}
+
+.products-cta__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.products-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+  cursor: pointer;
+}
+
+.products-action-btn--primary {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--accent-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.products-action-btn--primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.products-action-btn--secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.products-action-btn--secondary:hover {
+  border-color: var(--border-strong);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  .digital-products-page {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+
+  .products-hero {
+    margin-bottom: var(--space-12);
+  }
+
+  .products-principles-card {
+    padding: var(--space-5) var(--space-5);
+  }
+
+  .products-cta-card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .products-cta__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .products-cta__actions .products-action-btn {
+    width: 100%;
+  }
+}

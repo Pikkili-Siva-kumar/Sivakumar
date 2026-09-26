@@ -1,0 +1,190 @@
+/* AssistantStep.css */
+
+.assistant-step-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: relative;
+}
+
+.assistant-step-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.assistant-step-card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--accent-primary);
+  font-weight: 600;
+  width: fit-content;
+  letter-spacing: 0.05em;
+}
+
+.assistant-step-card__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.assistant-step-card__subheading {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Validation error alert */
+.assistant-step-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: var(--radius-sm);
+  color: #B91C1C;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.assistant-step-error__icon {
+  font-size: 1.125rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Card Body */
+.assistant-step-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Card Footer & Navigation */
+.assistant-step-card__footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-6);
+  margin-top: var(--space-2);
+}
+
+.assistant-step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.assistant-step-nav__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.assistant-step-nav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Assistant Buttons */
+.assistant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.assistant-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.assistant-btn--primary {
+  background: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+}
+
+.assistant-btn--primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.assistant-btn--secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.assistant-btn--secondary:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-strong);
+}
+
+.assistant-btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+
+.assistant-btn--ghost:hover {
+  color: #B91C1C;
+  background: #FEF2F2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .assistant-step-card {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .assistant-step-card__heading {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .assistant-step-card {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .assistant-step-nav {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .assistant-step-nav__left,
+  .assistant-step-nav__right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .assistant-btn {
+    flex: 1;
+    text-align: center;
+  }
+}

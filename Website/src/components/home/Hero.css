@@ -1,0 +1,212 @@
+/**
+ * Hero Section Styles
+ * Step 03: Professional Personal-Brand Hero (Refined)
+ */
+
+.hero-section {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-12);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-16);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-20);
+  }
+}
+
+/* Two-column desktop grid with spacious balance */
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: var(--space-16);
+  }
+}
+
+/* Left Column / Editorial Content */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Small Eyebrow */
+.hero__eyebrow {
+  align-self: flex-start;
+  margin-bottom: var(--space-3);
+  padding: 0.3rem 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.hero__eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+/* 2. Main Heading - Refined scale with generous breathing room */
+.hero__heading {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  text-wrap: balance;
+}
+
+/* 3. Professional Title */
+.hero__title {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+/* 4. Supporting Text */
+.hero__description {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .hero__description {
+    font-size: 1.0625rem;
+  }
+}
+
+/* 5. CTA Buttons */
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+/* Primary CTA: Dark charcoal with restrained blue hover */
+.hero__btn--primary {
+  background-color: var(--text-primary);
+  color: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid transparent;
+}
+
+.hero__btn--primary:hover {
+  background-color: var(--accent-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary CTA: Clean surface pill with hairline border */
+.hero__btn--secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-xs);
+}
+
+.hero__btn--secondary:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__btn {
+    width: 100%;
+    padding: 0.8rem 1.4rem;
+  }
+}
+
+/* Right Column / Single Clean Profile Frame */
+.hero__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero__media {
+    justify-content: flex-end;
+  }
+}
+
+/* Single clean rounded frame: subtle border, soft shadow, zero double-frame */
+.hero__image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+@media (max-width: 899px) {
+  .hero__image-frame {
+    max-width: 280px;
+    aspect-ratio: 4 / 3.35;
+    margin-top: var(--space-2);
+  }
+
+  .hero__image {
+    object-position: center 20%;
+  }
+}

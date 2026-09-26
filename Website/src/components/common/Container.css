@@ -1,0 +1,42 @@
+/**
+ * Container Styles
+ * Responsive gutters without horizontal overflow
+ */
+
+.site-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad-mobile);
+  padding-right: var(--container-pad-mobile);
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: var(--container-pad-tablet);
+    padding-right: var(--container-pad-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: var(--container-pad-desktop);
+    padding-right: var(--container-pad-desktop);
+  }
+}
+
+.site-container--default {
+  max-width: var(--container-max);
+}
+
+.site-container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.site-container--wide {
+  max-width: var(--container-wide);
+}
+
+.site-container--full {
+  max-width: 100%;
+}

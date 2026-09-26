@@ -1,0 +1,135 @@
+/**
+ * Design Tokens
+ * Siva Kumar - Personal Brand & Business Website
+ * Step 01: Project Foundation
+ */
+
+:root {
+  /* ==========================================================================
+     1. Background Colors
+     Warm off-white architectural tones with high surface clarity
+     ========================================================================== */
+  --bg-primary: #F9F8F5;          /* Warm off-white canvas base */
+  --bg-surface: #FFFFFF;          /* Pure crisp white for elevated cards & sections */
+  --bg-subtle: #F3F1EC;           /* Warm secondary fill for badges & subtle blocks */
+  --bg-surface-hover: #F8F7F3;    /* Gentle interaction hover state */
+  --bg-header: rgba(249, 248, 245, 0.88); /* Frosted header background with blur */
+  --bg-grid-line: rgba(18, 26, 36, 0.04); /* Ultra-fine architectural grid lines */
+
+  /* ==========================================================================
+     2. Typography Colors & Muted Text
+     Dark navy / charcoal for clear hierarchy and high readability
+     ========================================================================== */
+  --text-primary: #121A24;        /* Dark navy-charcoal for headings & primary copy */
+  --text-secondary: #334155;      /* Deep slate for body paragraphs */
+  --text-muted: #64748B;          /* Muted slate for metadata, labels, and captions */
+  --text-subtle: #94A3B8;         /* Faded tertiary text for subtle hints */
+  --text-inverted: #FFFFFF;       /* Crisp white for dark containers or buttons */
+
+  /* ==========================================================================
+     3. Accent Colors
+     Restrained, editorial blue accent
+     ========================================================================== */
+  --accent-primary: #1D4ED8;      /* Restrained modern blue */
+  --accent-hover: #1E40AF;        /* Darker blue for active/hover states */
+  --accent-subtle: #EFF6FF;       /* Soft blue tint for tags & pill badges */
+  --accent-border: #BFDBFE;       /* Subtle blue border for highlights */
+
+  /* ==========================================================================
+     4. Border Colors
+     Clean, hairline structural borders
+     ========================================================================== */
+  --border-subtle: rgba(18, 26, 36, 0.08); /* 8% opacity for quiet separations */
+  --border-default: rgba(18, 26, 36, 0.14); /* 14% opacity for standard card borders */
+  --border-strong: rgba(18, 26, 36, 0.22);  /* 22% opacity for emphasis */
+  --border-focus: #1D4ED8;                  /* Accessible focus outline */
+
+  /* ==========================================================================
+     5. Spacing Scale (Consistent 4px / 8px geometric cadence)
+     ========================================================================== */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-7: 1.75rem;   /* 28px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* ==========================================================================
+     6. Border Radius (Rounded components)
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     7. Shadows (Soft, minimal, non-aggressive depth)
+     ========================================================================== */
+  --shadow-xs: 0 1px 2px rgba(18, 26, 36, 0.04);
+  --shadow-sm: 0 2px 5px -1px rgba(18, 26, 36, 0.05), 0 1px 3px rgba(18, 26, 36, 0.03);
+  --shadow-md: 0 6px 16px -2px rgba(18, 26, 36, 0.05), 0 2px 6px -1px rgba(18, 26, 36, 0.03);
+  --shadow-lg: 0 14px 28px -4px rgba(18, 26, 36, 0.06), 0 4px 10px -2px rgba(18, 26, 36, 0.03);
+
+  /* ==========================================================================
+     8. Typography Sizes & Hierarchy
+     ========================================================================== */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-xs: 0.75rem;     /* 12px */
+  --lh-xs: 1.4;
+  --text-sm: 0.875rem;    /* 14px */
+  --lh-sm: 1.5;
+  --text-base: 1rem;      /* 16px */
+  --lh-base: 1.6;
+  --text-lg: 1.125rem;    /* 18px */
+  --lh-lg: 1.55;
+  --text-xl: 1.25rem;     /* 20px */
+  --lh-xl: 1.4;
+  --text-2xl: 1.5rem;     /* 24px */
+  --lh-2xl: 1.3;
+  --text-3xl: 1.875rem;   /* 30px */
+  --lh-3xl: 1.25;
+  --text-4xl: 2.25rem;    /* 36px */
+  --lh-4xl: 1.2;
+  --text-5xl: 3rem;       /* 48px */
+  --lh-5xl: 1.15;
+
+  /* ==========================================================================
+     9. Responsive Layout & Breakpoint Tokens
+     Breakpoints:
+     - Mobile:   < 640px
+     - Tablet:   640px - 1024px
+     - Desktop:  >= 1024px
+     - Wide:     >= 1280px
+     ========================================================================== */
+  --container-max: 1140px;
+  --container-narrow: 760px;
+  --container-wide: 1280px;
+
+  --container-pad-mobile: var(--space-4);  /* 16px */
+  --container-pad-tablet: var(--space-6);  /* 24px */
+  --container-pad-desktop: var(--space-8); /* 32px */
+
+  --header-height: 72px;
+
+  /* Transitions */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
+}

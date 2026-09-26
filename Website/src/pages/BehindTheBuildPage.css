@@ -1,0 +1,148 @@
+/**
+ * BehindTheBuildPage Styles
+ * Step 31: Build the "Behind the Build" Feature
+ */
+
+.behind-the-build-page {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+  background-color: var(--bg-canvas);
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Page Hero
+   ========================================================================== */
+.build-hero {
+  max-width: 48rem;
+  margin-bottom: var(--space-16);
+}
+
+.build-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+.build-hero__title {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.build-hero__subheading {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4) 0;
+  max-width: 42rem;
+}
+
+.build-hero__supporting {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Page Sections
+   ========================================================================== */
+.build-page-section {
+  position: relative;
+}
+
+/* ==========================================================================
+   Section 9: Bottom CTA Card
+   ========================================================================== */
+.build-cta-section {
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-8);
+}
+
+.build-cta-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10) var(--space-8);
+  box-shadow: var(--shadow-sm);
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.build-cta__heading {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.build-cta__text {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 34rem;
+  margin: 0 0 var(--space-6) 0;
+}
+
+.build-cta__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  .behind-the-build-page {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+
+  .build-hero {
+    margin-bottom: var(--space-12);
+  }
+
+  .build-cta-card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .build-cta__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .build-cta__actions .build-action-btn {
+    width: 100%;
+  }
+}

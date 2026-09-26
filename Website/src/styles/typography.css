@@ -1,0 +1,131 @@
+/**
+ * Typography System
+ * Step 01: Project Foundation
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  line-height: var(--lh-4xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  line-height: var(--lh-3xl);
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--lh-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+}
+
+h6 {
+  font-size: var(--text-base);
+  line-height: var(--lh-base);
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: var(--lh-base);
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Typography Utility Classes */
+.text-xs {
+  font-size: var(--text-xs);
+  line-height: var(--lh-xs);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--lh-sm);
+}
+
+.text-base {
+  font-size: var(--text-base);
+  line-height: var(--lh-base);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+  line-height: var(--lh-lg);
+}
+
+.text-xl {
+  font-size: var(--text-xl);
+  line-height: var(--lh-xl);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-subtle {
+  color: var(--text-subtle);
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Responsive typography scaling */
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--text-5xl);
+    line-height: var(--lh-5xl);
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+    line-height: var(--lh-4xl);
+  }
+}

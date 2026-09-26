@@ -1,0 +1,36 @@
+# Other local project folders outside the website
+careerOS/
+CareerOS-v2/
+New folder/
+Sivakumar/
+
+# Environment files
+.env
+.env.*
+.env.local
+*.env.local
+!.env.example
+Website/.env
+Website/.env.*
+Website/backend/.env
+Website/backend/.env.*
+!Website/.env.example
+!Website/backend/.env.example
+
+# Dependencies & Build Outputs
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+
+# Logs
+logs/
+*.log

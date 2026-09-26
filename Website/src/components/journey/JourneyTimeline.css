@@ -1,0 +1,312 @@
+/**
+ * Journey Timeline Styles
+ * Step 28: Personal Journey / Timeline
+ *
+ * Vertical editorial layout with subtle spine, clean white cards,
+ * verified information, and fluid responsiveness without horizontal overflow.
+ */
+
+.journey-timeline {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.journey-timeline__track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  position: relative;
+}
+
+/* ==========================================================================
+   Timeline Entry (Item)
+   ========================================================================== */
+.journey-item {
+  display: grid;
+  grid-template-columns: 140px 32px 1fr;
+  column-gap: var(--space-6);
+  align-items: start;
+  position: relative;
+}
+
+/* Desktop Time/Period Column */
+.journey-item__time-col {
+  text-align: right;
+  padding-top: calc(var(--space-6) - 2px);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+.journey-item__period {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+}
+
+/* Vertical Spine Rail & Dot */
+.journey-item__spine-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: var(--space-6);
+  height: 100%;
+}
+
+/* Subtle continuous vertical spine */
+.journey-item__spine-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: calc(-1 * var(--space-8));
+  width: 2px;
+  background-color: var(--border-default);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Stop line at the center of the dot on the last item */
+.journey-item:last-child .journey-item__spine-col::before {
+  bottom: calc(100% - var(--space-6) - 8px);
+}
+
+/* Spine Node Dot */
+.journey-item__dot {
+  position: relative;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface);
+  border: 2.5px solid var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+  transition: transform var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.journey-item:hover .journey-item__dot {
+  transform: scale(1.15);
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 0 5px var(--accent-border);
+}
+
+/* ==========================================================================
+   Timeline White Card
+   ========================================================================== */
+.journey-item__card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard);
+  min-width: 0; /* Prevents overflow */
+}
+
+.journey-item:hover .journey-item__card {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Meta: Type Badge & Mobile Period */
+.journey-item__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.journey-item__type-badge {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-subtle);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-border);
+}
+
+/* Mobile period is hidden on desktop */
+.journey-item__mobile-period {
+  display: none;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+  background-color: var(--bg-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+}
+
+/* Typography */
+.journey-item__title {
+  font-size: clamp(1.1875rem, 2vw, 1.375rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-1);
+}
+
+.journey-item__org {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--accent-primary);
+  line-height: 1.45;
+  margin-bottom: var(--space-3);
+}
+
+.journey-item__desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: var(--space-4);
+  text-wrap: pretty;
+}
+
+/* Tags */
+.journey-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.journey-item__tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  padding: 3px 9px;
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  line-height: 1.3;
+}
+
+/* Action Button ("View Project") */
+.journey-item__action-wrapper {
+  padding-top: var(--space-1);
+}
+
+.journey-item__action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.journey-item__action-arrow {
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.journey-item__action-btn:hover {
+  background-color: var(--accent-primary);
+  color: var(--text-inverted);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.journey-item__action-btn:hover .journey-item__action-arrow {
+  transform: translateX(3px);
+}
+
+.journey-item__action-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Responsive Refinement (Tablets & Mobile Viewports)
+   ========================================================================== */
+@media (max-width: 820px) {
+  .journey-timeline__track {
+    gap: var(--space-6);
+  }
+
+  .journey-item {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--space-4);
+  }
+
+  .journey-item__time-col {
+    display: none;
+  }
+
+  .journey-item__mobile-period {
+    display: inline-block;
+  }
+
+  .journey-item__spine-col {
+    width: 20px;
+    flex-shrink: 0;
+    padding-top: var(--space-5);
+  }
+
+  .journey-item__spine-col::before {
+    bottom: calc(-1 * var(--space-6));
+  }
+
+  .journey-item:last-child .journey-item__spine-col::before {
+    bottom: calc(100% - var(--space-5) - 8px);
+  }
+
+  .journey-item__card {
+    padding: var(--space-5);
+  }
+
+  .journey-item__title {
+    font-size: 1.1875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-item {
+    column-gap: var(--space-3);
+  }
+
+  .journey-item__spine-col {
+    width: 16px;
+    padding-top: var(--space-5);
+  }
+
+  .journey-item__dot {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .journey-item__card {
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .journey-item__desc {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+}

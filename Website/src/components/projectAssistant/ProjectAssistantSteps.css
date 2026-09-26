@@ -1,0 +1,637 @@
+/* ProjectAssistantSteps.css */
+
+/* ==========================================================================
+   Step 1: Project Type Selection Grid
+   ========================================================================== */
+.assistant-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.assistant-option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  position: relative;
+  color: inherit;
+}
+
+.assistant-option-card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface-hover);
+  transform: translateY(-1px);
+}
+
+.assistant-option-card:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.assistant-option-card--selected {
+  border-color: var(--accent-primary);
+  background: #FAFCFF;
+  box-shadow: 0 0 0 1px var(--accent-primary);
+}
+
+.assistant-option-card__radio-indicator {
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.assistant-radio-circle {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  background: #ffffff;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.assistant-radio-circle--active {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+}
+
+.assistant-radio-circle--active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.assistant-option-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.assistant-option-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.assistant-option-card__desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Common Form Fields & Controls (Steps 2, 3, 4)
+   ========================================================================== */
+.assistant-form-fields,
+.assistant-scope-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.assistant-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.assistant-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.assistant-required {
+  color: #DC2626;
+  margin-left: 2px;
+}
+
+.assistant-optional {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: var(--space-1);
+}
+
+.assistant-input,
+.assistant-textarea {
+  width: 100%;
+  padding: 0.75rem var(--space-4);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.assistant-input:focus,
+.assistant-textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.assistant-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+.assistant-help-text {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.assistant-field-error {
+  font-size: 0.8125rem;
+  color: #DC2626;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Step 3: Features & Chips
+   ========================================================================== */
+.assistant-features-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.assistant-suggestions-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-sm);
+}
+
+.assistant-suggestions-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.assistant-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.assistant-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.375rem 0.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.assistant-chip:hover {
+  background: var(--accent-subtle);
+  border-color: var(--accent-border);
+  color: var(--accent-primary);
+}
+
+.assistant-chip--added {
+  background: #F0FDF4;
+  border-color: #BBF7D0;
+  color: #166534;
+}
+
+.assistant-chip__plus {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.assistant-feature-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.assistant-add-btn {
+  margin-bottom: 2px;
+  height: 44px;
+}
+
+.assistant-features-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.assistant-features-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-2);
+}
+
+.assistant-features-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.assistant-empty-features {
+  padding: var(--space-6);
+  text-align: center;
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-hover);
+}
+
+.assistant-empty-features__text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.assistant-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.assistant-feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-surface-hover);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.assistant-feature-item:hover {
+  border-color: var(--border-default);
+  background: var(--bg-surface);
+}
+
+.assistant-feature-item__content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+}
+
+.assistant-feature-item__num {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.assistant-feature-item__text {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.assistant-feature-item__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.assistant-action-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  transition: all 0.15s ease;
+}
+
+.assistant-action-btn:hover {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.assistant-action-btn--delete:hover {
+  color: #DC2626;
+  background: #FEF2F2;
+}
+
+/* Inline Feature Edit Mode */
+.assistant-feature-edit-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.assistant-input--inline {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.assistant-feature-edit-actions {
+  display: flex;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.assistant-btn--small {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   Step 4: Scope Pills & Grid
+   ========================================================================== */
+.assistant-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-2);
+}
+
+.assistant-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.625rem 0.75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.assistant-pill-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface-hover);
+}
+
+.assistant-pill-btn--active {
+  border-color: var(--accent-primary);
+  background: var(--accent-subtle);
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.assistant-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  transition: background 0.2s ease;
+}
+
+.assistant-pill-btn--active .assistant-pill-dot {
+  background: var(--accent-primary);
+}
+
+/* ==========================================================================
+   Step 5: Review Summary
+   ========================================================================== */
+.assistant-review-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.assistant-brief-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.assistant-brief-section {
+  padding: var(--space-5);
+  background: var(--bg-surface-hover);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.assistant-brief-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-2);
+}
+
+.assistant-brief-section__num {
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  font-weight: 700;
+  margin-right: var(--space-2);
+}
+
+.assistant-brief-section__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+  margin: 0;
+}
+
+.assistant-brief-edit-link {
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.assistant-brief-edit-link:hover {
+  background: var(--accent-subtle);
+}
+
+.assistant-brief-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.assistant-brief-row--column {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.assistant-brief-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.assistant-brief-value {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.assistant-brief-value--highlight {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.assistant-brief-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.assistant-brief-features-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.assistant-brief-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.375rem 0.75rem;
+  background: #ffffff;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.assistant-brief-tag__num {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.assistant-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.assistant-brief-grid .assistant-brief-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.assistant-brief-grid .assistant-brief-value {
+  text-align: left;
+}
+
+.assistant-brief-extra-reqs {
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.assistant-editorial-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: var(--radius-xs);
+}
+
+.assistant-editorial-note__icon {
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.assistant-editorial-note__text {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.assistant-btn--continue {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* ==========================================================================
+   Responsive Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+  .assistant-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assistant-feature-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .assistant-add-btn {
+    height: auto;
+  }
+
+  .assistant-brief-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .assistant-pills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .assistant-brief-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .assistant-brief-value {
+    text-align: left;
+  }
+}

@@ -1,0 +1,417 @@
+/**
+ * Build Stats Page Stylesheet
+ * Route: /build-stats
+ * Step 36: Public Build Stats
+ *
+ * Implements editorial typography, warm off-white canvas, subtle fine grid,
+ * dark navy headings, restrained blue accents, and clean card containers.
+ */
+
+.build-stats-page {
+  min-height: 100vh;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-20);
+  background-color: var(--bg-primary);
+  background-image:
+    linear-gradient(to right, var(--bg-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ==========================================================================
+   Navigation / Breadcrumb Link
+   ========================================================================== */
+.build-stats-nav {
+  margin-bottom: var(--space-8);
+}
+
+.build-stats-nav__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.build-stats-nav__arrow {
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.build-stats-nav__back-link:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-stats-nav__back-link:hover .build-stats-nav__arrow {
+  transform: translateX(-3px);
+}
+
+.build-stats-nav__back-link:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.build-stats-hero {
+  margin-bottom: var(--space-12);
+  max-width: 800px;
+}
+
+.build-stats-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  color: var(--accent-primary);
+  background-color: var(--accent-subtle);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-4);
+}
+
+.build-stats-hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-primary);
+}
+
+.build-stats-hero__heading {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  text-wrap: balance;
+}
+
+.build-stats-hero__subheading {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  max-width: 720px;
+}
+
+.build-stats-hero__supporting {
+  display: inline-block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   Content Sections Layout
+   ========================================================================== */
+.build-stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.build-stats-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.build-stats-section__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.build-stats-section__accent-bar {
+  width: 4px;
+  height: 20px;
+  background-color: var(--accent-primary);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.build-stats-section__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 4: Current Areas of Focus Cards
+   ========================================================================== */
+.build-stats-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.build-stats-focus-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.build-stats-focus-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-md);
+}
+
+.build-stats-focus-card__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.build-stats-focus-card__desc {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4) 0;
+  flex-grow: 1;
+}
+
+.build-stats-focus-card__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.build-stats-focus-card__tag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.build-stats-focus-cta {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.build-stats-link-forward {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.build-stats-link-forward:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--accent-subtle);
+}
+
+.build-stats-link-forward:hover .build-stats-link-arrow {
+  transform: translateX(4px);
+}
+
+.build-stats-link-arrow {
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+/* ==========================================================================
+   Section 6: Data Transparency Card
+   ========================================================================== */
+.build-stats-transparency-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-left: 4px solid var(--accent-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  box-shadow: var(--shadow-xs);
+}
+
+.build-stats-transparency-card__accent-bar {
+  display: none;
+}
+
+.build-stats-transparency-card__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+  letter-spacing: -0.01em;
+}
+
+.build-stats-transparency-card__text {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 7: CTA Card
+   ========================================================================== */
+.build-stats-section--cta {
+  margin-top: var(--space-4);
+}
+
+.build-stats-cta-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.build-stats-cta-card__accent-bar {
+  display: none;
+}
+
+.build-stats-cta-card__title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.build-stats-cta-card__text {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 0 var(--space-8) 0;
+}
+
+.build-stats-cta-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.build-stats-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.build-stats-btn--primary {
+  background-color: var(--text-primary);
+  color: var(--text-inverted);
+  border: 1px solid var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-stats-btn--primary:hover {
+  background-color: #0F172A;
+  border-color: #0F172A;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.build-stats-btn--secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-xs);
+}
+
+.build-stats-btn--secondary:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-stats-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .build-stats-focus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .build-stats-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .build-stats-cta-card {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .build-stats-cta-card__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .build-stats-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .build-stats-page {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-12);
+  }
+
+  .build-stats-hero {
+    margin-bottom: var(--space-8);
+  }
+
+  .build-stats-transparency-card {
+    padding: var(--space-5) var(--space-4);
+  }
+}

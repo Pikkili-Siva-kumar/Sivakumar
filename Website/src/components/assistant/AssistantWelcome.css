@@ -1,0 +1,200 @@
+/**
+ * Assistant Welcome & Launcher Styles
+ * Minimal, personal website assistant entry point matching warm editorial design system.
+ */
+
+.assistant-welcome-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.assistant-welcome-container > * {
+  pointer-events: auto;
+}
+
+/* Floating Welcome Card */
+.assistant-card {
+  width: 310px;
+  max-width: calc(100vw - 32px);
+  background-color: var(--bg-surface, #FFFFFF);
+  border: 1px solid var(--border-default, rgba(18, 26, 36, 0.14));
+  border-radius: 14px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  padding: 1rem 1.1rem 0.95rem 1.1rem;
+  margin-bottom: 0.5rem;
+  animation: assistantFadeIn 140ms ease-out;
+}
+
+@keyframes assistantFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Header */
+.assistant-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2, 0.5rem);
+  margin-bottom: 0.4rem;
+}
+
+.assistant-card__title {
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 600;
+  color: var(--text-primary, #121A24);
+  letter-spacing: -0.01em;
+}
+
+/* Close Button (×) */
+.assistant-card__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-muted, #64748B);
+  cursor: pointer;
+  border-radius: var(--radius-xs, 4px);
+  transition: all var(--duration-fast, 150ms) var(--ease-standard, ease);
+  padding: 0;
+}
+
+.assistant-card__close-btn:hover {
+  color: var(--text-primary, #121A24);
+  background-color: var(--bg-subtle, #F3F1EC);
+}
+
+.assistant-card__close-btn:focus-visible {
+  outline: 2px solid var(--border-focus, #1D4ED8);
+  outline-offset: 2px;
+}
+
+/* Body Copy */
+.assistant-card__body {
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-secondary, #334155);
+  line-height: 1.5;
+  margin: 0 0 0.85rem 0;
+}
+
+/* Actions */
+.assistant-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.assistant-card__primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.48rem 0.85rem;
+  border-radius: var(--radius-full, 9999px);
+  background-color: var(--text-primary, #121A24);
+  color: var(--text-inverted, #FFFFFF);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--duration-fast, 150ms) var(--ease-standard, ease);
+  box-sizing: border-box;
+}
+
+.assistant-card__primary-btn:hover {
+  background-color: var(--accent-primary, #1D4ED8);
+  color: var(--text-inverted, #FFFFFF);
+}
+
+.assistant-card__primary-btn:focus-visible {
+  outline: 2px solid var(--border-focus, #1D4ED8);
+  outline-offset: 2px;
+}
+
+.assistant-card__secondary-link {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted, #64748B);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 0;
+  transition: color var(--duration-fast, 150ms) var(--ease-standard, ease);
+}
+
+.assistant-card__secondary-link:hover {
+  color: var(--text-primary, #121A24);
+  text-decoration: underline;
+}
+
+.assistant-card__secondary-link:focus-visible {
+  outline: 2px solid var(--border-focus, #1D4ED8);
+  outline-offset: 2px;
+}
+
+/* Launcher Pill */
+.assistant-launcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full, 9999px);
+  background-color: var(--bg-surface, #FFFFFF);
+  border: 1px solid var(--border-default, rgba(18, 26, 36, 0.14));
+  color: var(--text-primary, #121A24);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms) var(--ease-standard, ease);
+  line-height: 1.4;
+}
+
+.assistant-launcher:hover {
+  background-color: var(--bg-primary, #F9F8F5);
+  border-color: var(--border-strong, rgba(18, 26, 36, 0.22));
+}
+
+.assistant-launcher:focus-visible {
+  outline: 2px solid var(--border-focus, #1D4ED8);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Mobile Responsive Adjustments (375px and 320px)
+   ========================================================================== */
+@media (max-width: 639px) {
+  .assistant-welcome-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    align-items: stretch;
+  }
+
+  .assistant-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0.4rem;
+    padding: 0.9rem 1rem 0.85rem 1rem;
+  }
+
+  .assistant-launcher {
+    align-self: flex-end;
+  }
+}

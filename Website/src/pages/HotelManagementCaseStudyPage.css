@@ -1,0 +1,283 @@
+/**
+ * Case Study Page Styles: Luxury Hotel Management System
+ * Step 08: Professional Technical Case Study
+ */
+
+@import './FederatedLearningCaseStudyPage.css';
+
+/* ==========================================================================
+   Technical Architecture Stack
+   ========================================================================== */
+.hotel-arch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 780px;
+}
+
+.hotel-arch__card {
+  padding: var(--space-5) var(--space-6);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.hotel-arch__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.hotel-arch__label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
+}
+
+.hotel-arch__tech {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.hotel-arch__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0;
+  margin-top: var(--space-1);
+}
+
+.hotel-arch__connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Database Design & Conceptual Relationship Map
+   ========================================================================== */
+.hotel-db__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .hotel-db__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hotel-db__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-db__rel-card {
+  margin-top: var(--space-5);
+  padding: var(--space-6);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.hotel-db__rel-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .hotel-db__rel-flow {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+}
+
+.hotel-db__rel-node {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.hotel-db__rel-node--highlight {
+  background-color: var(--accent-subtle);
+  border-color: var(--accent-border);
+}
+
+.hotel-db__rel-edge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Booking Workflow Timeline (Cards / Ordered Sequence)
+   ========================================================================== */
+.hotel-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.hotel-timeline__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+
+.hotel-timeline__item:hover {
+  transform: translateX(2px);
+  border-color: var(--border-strong);
+}
+
+.hotel-timeline__badge {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+  background-color: var(--accent-subtle);
+  border: 1px solid var(--accent-border);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.hotel-timeline__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hotel-timeline__title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  letter-spacing: -0.01em;
+}
+
+.hotel-timeline__desc {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Bottom Navigation */
+.case-study__nav-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-default);
+  margin-top: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.case-study__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.case-study__nav-btn--prev {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-xs);
+}
+
+.case-study__nav-btn--prev:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-strong);
+  transform: translateX(-2px);
+}
+
+.case-study__nav-btn--interactive {
+  background-color: #FAFCFF;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-subtle);
+  box-shadow: var(--shadow-xs);
+}
+
+.case-study__nav-btn--interactive:hover {
+  background-color: var(--accent-subtle);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.case-study__nav-btn--build {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-xs);
+}
+
+.case-study__nav-btn--build:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.case-study__nav-btn--next {
+  background-color: var(--text-primary);
+  color: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid transparent;
+}
+
+.case-study__nav-btn--next:hover {
+  background-color: var(--accent-primary);
+  transform: translateX(2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 600px) {
+  .case-study__nav-footer {
+    flex-direction: column-reverse;
+  }
+
+  .case-study__nav-btn {
+    width: 100%;
+    padding: 0.85rem 1.4rem;
+  }
+}

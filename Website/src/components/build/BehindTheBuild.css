@@ -1,0 +1,1166 @@
+/**
+ * Behind the Build Styles
+ * Step 31: Build the "Behind the Build" Feature
+ *
+ * Architectural, editorial styling adhering to the website design system:
+ * Warm off-white canvas, white cards, hairline borders, restrained blue accent,
+ * distinct layout rhythms (flows, cards, pipelines, lists), zero horizontal overflow.
+ */
+
+/* ==========================================================================
+   Common Section Headers & Accent Bars
+   ========================================================================== */
+.build-section-head {
+  margin-bottom: var(--space-8);
+}
+
+.build-accent-bar {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background-color: var(--accent-primary);
+  margin-bottom: var(--space-3);
+  border-radius: 1px;
+}
+
+.build-section-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.build-section-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  max-width: 44rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 1: Project Selector
+   ========================================================================== */
+.build-selector {
+  margin-bottom: var(--space-16);
+}
+
+.build-selector__head {
+  margin-bottom: var(--space-6);
+}
+
+.build-selector__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.build-selector__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.build-selector-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  outline: none;
+  font-family: inherit;
+  color: inherit;
+  position: relative;
+}
+
+.build-selector-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.build-selector-card--active {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-subtle), var(--shadow-md);
+  background-color: #FAFCFF;
+}
+
+.build-selector-card:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+.build-selector-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-xs);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.build-selector-card__number {
+  color: var(--accent-primary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.build-selector-card__category {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.build-selector-card__status {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.build-selector-card__active-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.build-selector-card__active-ping {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+.build-selector-card__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.build-selector-card__summary {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 0 var(--space-5) 0;
+  flex: 1;
+}
+
+.build-selector-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1-5);
+  margin-top: auto;
+}
+
+.build-selector-card__tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Section 2: System Architecture Pipeline (Vertical Visual Flow)
+   ========================================================================== */
+.build-architecture {
+  margin-bottom: var(--space-16);
+}
+
+.architecture-pipeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.architecture-node {
+  width: 100%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: border-color var(--duration-fast);
+}
+
+.architecture-node:hover {
+  border-color: var(--border-strong);
+}
+
+.architecture-node__badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-1-5);
+}
+
+.architecture-node__title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-1-5) 0;
+}
+
+.architecture-node__detail {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.architecture-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.35rem 0;
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.architecture-connector__line {
+  width: 1.5px;
+  height: 0.75rem;
+  background-color: var(--border-strong);
+}
+
+.architecture-connector__arrow {
+  display: inline-block;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Section 3: Engineering Decisions
+   ========================================================================== */
+.build-decisions {
+  margin-bottom: var(--space-16);
+}
+
+.build-decisions__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.build-decision-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.build-decision-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  gap: var(--space-2);
+}
+
+.build-decision-card__num {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.06em;
+}
+
+.build-decision-card__topic {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.build-decision-card__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2-5) 0;
+  letter-spacing: -0.01em;
+}
+
+.build-decision-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 4: Request / Data Flow (Visual Architecture Pipeline)
+   ========================================================================== */
+.build-dataflow {
+  margin-bottom: var(--space-16);
+}
+
+.build-dataflow__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.build-dataflow__trace-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem 0.75rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+
+.build-dataflow__pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: dataflow-pulse 2s infinite ease-in-out;
+}
+
+@keyframes dataflow-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+.build-dataflow__container {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* --- PIPELINE STEPPER RAIL --- */
+.dataflow-rail-container {
+  position: relative;
+  padding: var(--space-3) 0 var(--space-2) 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.dataflow-rail-track {
+  position: absolute;
+  top: 1.85rem;
+  left: 2rem;
+  right: 2rem;
+  height: 3px;
+  background-color: var(--border-subtle);
+  border-radius: var(--radius-full);
+  z-index: 1;
+}
+
+.dataflow-rail-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), #60a5fa);
+  border-radius: var(--radius-full);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dataflow-rail-nodes {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  z-index: 2;
+  min-width: 38rem;
+}
+
+.dataflow-rail-node {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  transition: transform 0.2s ease;
+  flex: 1;
+}
+
+.dataflow-rail-node:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
+}
+
+.dataflow-rail-node__circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dataflow-rail-node__icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.dataflow-rail-node__num {
+  position: absolute;
+  bottom: -0.35rem;
+  right: -0.35rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  padding: 0.05rem 0.25rem;
+  border-radius: var(--radius-full);
+}
+
+.dataflow-rail-node__name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: var(--space-2);
+  text-align: center;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.dataflow-rail-node--passed .dataflow-rail-node__circle {
+  border-color: var(--accent-primary);
+  background-color: #EFF6FF;
+}
+
+.dataflow-rail-node--passed .dataflow-rail-node__icon {
+  color: var(--accent-primary);
+}
+
+.dataflow-rail-node--active .dataflow-rail-node__circle {
+  border-color: var(--accent-primary);
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.dataflow-rail-node--active .dataflow-rail-node__icon {
+  color: #FFFFFF;
+}
+
+.dataflow-rail-node--active .dataflow-rail-node__name {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+/* --- ACTIVE STAGE SPOTLIGHT CARD --- */
+.dataflow-spotlight {
+  background: linear-gradient(180deg, #F8FAFC 0%, var(--bg-surface) 100%);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.dataflow-spotlight__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.dataflow-spotlight__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dataflow-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.stage-badge--entry {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.stage-badge--validate {
+  background-color: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.stage-badge--query {
+  background-color: #F5F3FF;
+  color: #6D28D9;
+  border: 1px solid #DDD6FE;
+}
+
+.stage-badge--process {
+  background-color: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.stage-badge--database {
+  background-color: #ECFEFF;
+  color: #0E7490;
+  border: 1px solid #A5F3FC;
+}
+
+.stage-badge--review {
+  background-color: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FFEDD5;
+}
+
+.stage-badge--result {
+  background-color: #F0FDF4;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.dataflow-step-counter {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.dataflow-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dataflow-control-btn {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 0.35rem 0.75rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  transition: all 0.2s ease;
+}
+
+.dataflow-control-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background-color: var(--bg-subtle);
+}
+
+.dataflow-control-btn--play {
+  color: var(--accent-primary);
+  border-color: var(--border-default);
+}
+
+.dataflow-control-btn--playing {
+  background-color: #EFF6FF;
+  color: var(--accent-primary);
+  border-color: #BFDBFE;
+}
+
+.dataflow-spotlight__body {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+.dataflow-spotlight__primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dataflow-spotlight__stage-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2-5);
+  margin-bottom: var(--space-2);
+}
+
+.dataflow-spotlight__num {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.dataflow-spotlight__heading {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.dataflow-spotlight__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Concrete I/O Spec Panel */
+.dataflow-io-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2-5);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.dataflow-io-item {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: var(--space-3);
+  align-items: baseline;
+  font-size: var(--text-xs);
+}
+
+.dataflow-io-item--highlight {
+  background-color: var(--bg-subtle);
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+  margin: -0.15rem -0.5rem;
+}
+
+.dataflow-io-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.dataflow-io-item--highlight .dataflow-io-label {
+  color: var(--accent-primary);
+}
+
+.dataflow-io-val {
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+/* --- COMPLETE CONDUIT GRID --- */
+.dataflow-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dataflow-grid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px dashed var(--border-default);
+}
+
+.dataflow-grid-title {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.dataflow-grid-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.dataflow-conduit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--space-4);
+}
+
+.dataflow-card {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4-5);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  text-align: left;
+}
+
+.dataflow-card:hover {
+  background-color: var(--bg-surface);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dataflow-card:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.dataflow-card--active {
+  background-color: var(--bg-surface);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1.5px var(--accent-primary), 0 4px 12px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.dataflow-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.dataflow-card__node-ident {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dataflow-card__icon-box {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+}
+
+.dataflow-card--active .dataflow-card__icon-box {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  border-color: var(--accent-primary);
+}
+
+.dataflow-card__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.dataflow-card__step {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.dataflow-card--active .dataflow-card__step {
+  color: var(--accent-primary);
+}
+
+.dataflow-card__phase {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.dataflow-card__label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-1-5) 0;
+  letter-spacing: 0.01em;
+}
+
+.dataflow-card__desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 var(--space-3) 0;
+  flex: 1;
+}
+
+.dataflow-card__footer {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.dataflow-card__next-indicator {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.dataflow-card--active .dataflow-card__next-indicator {
+  color: var(--accent-primary);
+}
+
+.dataflow-card__next-indicator--complete {
+  color: #059669;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Section 5: Testing Methodologies (Editorial Layout)
+   ========================================================================== */
+.build-testing {
+  margin-bottom: var(--space-16);
+}
+
+
+.build-testing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.build-testing-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.build-testing-card:nth-child(4),
+.build-testing-card:nth-child(5) {
+  grid-column: span 1;
+}
+
+.build-testing-card__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.build-testing-card__num {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.build-testing-card__title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.build-testing-card__summary {
+  font-size: var(--text-xs);
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.4;
+}
+
+.build-testing-card__desc {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 6: Tech Stack Breakdown
+   ========================================================================== */
+.build-tech {
+  margin-bottom: var(--space-16);
+}
+
+.build-tech__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--space-4);
+}
+
+.build-tech-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-tech-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.build-tech-card__name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.build-tech-card__verified {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #059669;
+  letter-spacing: 0.05em;
+  background-color: #ECFDF5;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+}
+
+.build-tech-card__role {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 7: What I Learned
+   ========================================================================== */
+.build-lessons {
+  margin-bottom: var(--space-16);
+}
+
+.build-lessons__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.build-lesson-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4-5) var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-lesson-item__num {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+  padding-top: 0.15rem;
+}
+
+.build-lesson-item__content {
+  flex: 1;
+}
+
+.build-lesson-item__title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.build-lesson-item__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 8: Related Actions Buttons
+   ========================================================================== */
+.build-actions {
+  margin-bottom: var(--space-16);
+}
+
+.build-actions__buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.build-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+  cursor: pointer;
+}
+
+.build-action-btn--primary {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--accent-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-action-btn--primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.build-action-btn--secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.build-action-btn--secondary:hover {
+  border-color: var(--border-strong);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.build-action-btn--outline {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.build-action-btn--outline:hover {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+  background-color: var(--bg-subtle);
+}
+
+/* ==========================================================================
+   Responsive Viewport Adaptations
+   ========================================================================== */
+@media (max-width: 960px) {
+  .build-testing__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .build-selector__grid,
+  .build-decisions__grid,
+  .build-testing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dataflow-spotlight__body {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .dataflow-controls {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .dataflow-conduit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .build-dataflow__container {
+    padding: var(--space-5);
+  }
+
+  .build-actions__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .build-action-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .build-selector-card {
+    padding: var(--space-4-5);
+  }
+
+  .architecture-node {
+    padding: var(--space-4);
+  }
+
+  .build-decision-card {
+    padding: var(--space-4-5);
+  }
+
+  .build-lesson-item {
+    padding: var(--space-3-5);
+    gap: var(--space-3);
+  }
+}

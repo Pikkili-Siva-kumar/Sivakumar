@@ -1,0 +1,245 @@
+/**
+ * About / Who I Am Section Styles
+ * Step 04: Professional Profile & Education Cards
+ */
+
+.about-section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-16);
+  width: 100%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms var(--ease-standard),
+              transform 400ms var(--ease-standard);
+  will-change: opacity, transform;
+}
+
+.about-section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-20);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-section {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-24);
+  }
+}
+
+/* Two-column editorial composition */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: var(--space-10);
+}
+
+@media (min-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1200px) {
+  .about__grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-16);
+  }
+}
+
+/* Left Column: Heading & Narrative */
+.about__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__heading-group {
+  margin-bottom: var(--space-6);
+}
+
+.about__heading {
+  font-size: clamp(1.875rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+/* Small blue horizontal accent line */
+.about__accent-bar {
+  display: block;
+  width: 38px;
+  height: 3px;
+  background-color: var(--accent-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Introduction Paragraph (Lead) */
+.about__lead {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .about__lead {
+    font-size: 1.1875rem;
+    line-height: 1.62;
+  }
+}
+
+/* Secondary Narrative Paragraphs */
+.about__paragraph {
+  font-size: var(--text-base);
+  line-height: 1.68;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  text-wrap: pretty;
+}
+
+.about__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Subtle Links to Journey Timeline & Currently Building */
+.about__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.about__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent-primary);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.about__link-arrow {
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.about__link:hover {
+  color: var(--accent-hover);
+}
+
+.about__link:hover .about__link-arrow {
+  transform: translateX(3px);
+}
+
+.about__link:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 4px;
+  border-radius: var(--radius-xs);
+}
+
+.about__actions-separator {
+  color: var(--border-strong);
+  font-size: var(--text-xs);
+  user-select: none;
+}
+
+/* Right Column: Clean White Information Cards */
+.about__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .about__cards {
+    gap: var(--space-4);
+  }
+}
+
+/* Clean Information Card */
+.about__card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5) var(--space-6);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard);
+  width: 100%;
+}
+
+.about__card:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Card Label */
+.about__card-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.08em;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-2);
+}
+
+/* Card Value */
+.about__card-value {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+/* Card Supporting Text */
+.about__card-supporting {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Mobile specific refinement */
+@media (max-width: 899px) {
+  .about__grid {
+    gap: var(--space-8);
+  }
+
+  .about__card {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .about__card-value {
+    font-size: var(--text-lg);
+  }
+}
